@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nemo.jennings.controller.ShiftAnalysisController">
+   <children>
+      <VBox prefHeight="500.0" prefWidth="650.0">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="650.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <HBox prefHeight="102.0" prefWidth="650.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" prefHeight="125.0" prefWidth="650.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0">
+                           <children>
+                              <GridPane fx:id="currentStateGridPane1" gridLinesVisible="true" layoutX="45.0" layoutY="37.0">
+                        </GridPane>
+                              <Label fx:id="polynomialLabel1" layoutX="10.0" layoutY="14.0" text="1st polynomial" />
+                              <Label fx:id="tLabel1" layoutX="10.0" layoutY="66.0" text="T" />
+                              <Label layoutX="10.0" layoutY="37.0" text="Y[i]=" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0">
+                           <children>
+                              <GridPane fx:id="currentStateGridPane2" gridLinesVisible="true" layoutX="45.0" layoutY="37.0">
+                        </GridPane>
+                              <Label fx:id="polynomialLabel2" layoutX="10.0" layoutY="14.0" text="2nd polynomial" />
+                              <Label fx:id="tLabel2" layoutX="10.0" layoutY="66.0" text="T" />
+                              <Label layoutX="10.0" layoutY="37.0" text="Y[i]=" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="89.0" prefWidth="650.0">
+               <children>
+                  <Label fx:id="tLabel" layoutX="14.0" layoutY="6.0" text="T" />
+                  <Label fx:id="hammingLabel" layoutX="14.0" layoutY="35.0" text="Hamming" />
+                  <Label fx:id="experimentalTLabel" layoutX="115.0" layoutY="6.0" text="Ex. T" />
+               </children>
+            </AnchorPane>
+            <TextArea fx:id="outputTextArea" focusTraversable="false" prefHeight="148.0" prefWidth="650.0" wrapText="true" />
+            <AnchorPane prefHeight="137.0" prefWidth="650.0">
+               <children>
+                  <Button fx:id="shiftButton" defaultButton="true" layoutX="241.0" layoutY="39.0" minWidth="75.0" mnemonicParsing="false" onAction="#shiftButtonPressed" style="-fx-background-color: #66ccff;" text="Shift" />
+                  <Button fx:id="shiftPeriodButton" layoutX="335.0" layoutY="39.0" mnemonicParsing="false" onAction="#shiftPeriodButtonPressed" style="-fx-background-color: #66ccff;" text="Shift Period" />
+                  <Button fx:id="clearButton" layoutX="583.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearButtonPressed" prefHeight="25.0" prefWidth="53.0" text="Clear" />
+                  <Button fx:id="acfButton" layoutX="295.0" layoutY="96.0" mnemonicParsing="false" onAction="#acfButtonPressed" prefHeight="25.0" prefWidth="61.0" text="ACF" />
+                  <Button fx:id="restartButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#restartButtonPressed" text="Restart" />
+                  <Button fx:id="backButton" layoutX="14.0" layoutY="96.0" mnemonicParsing="false" onAction="#backButtonPressed" text="Back" />
+                  <TextField fx:id="roundsTextField" layoutX="193.0" layoutY="39.0" prefHeight="25.0" prefWidth="41.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
