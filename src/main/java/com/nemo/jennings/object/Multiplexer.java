@@ -10,7 +10,6 @@ public class Multiplexer {
     private long period;
     private boolean isFull;
     private int inputN;
-    private int selectorN;
 
     public Multiplexer(LFSR input, LFSR selector) {
         int inputN = input.getPolynomial().getN();
@@ -25,7 +24,6 @@ public class Multiplexer {
         this.selector = selector;
         isFull = !(inputN < Math.pow(2, selectorN));
         this.inputN = inputN;
-        this.selectorN = selectorN;
         this.period = calculatePeriod();
     }
 

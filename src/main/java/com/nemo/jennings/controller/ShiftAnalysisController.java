@@ -60,6 +60,7 @@ public class ShiftAnalysisController {
     private LFSR lfsr2;
     private StringBuilder outputBuffer;
     private long hammingWeight;
+    private final String endOfPeriodMark = " End of period\n";
 
     void initData(LFSR lfsr1, LFSR lfsr2) {
         this.lfsr1 = lfsr1;
@@ -86,14 +87,14 @@ public class ShiftAnalysisController {
         addStateToGridPane(currentStateGridPane2, y2, false);
         calculateHammingWeight();
         experimentalTLabel.setText("Ex. T=" + outputTextArea.getText().
-                replaceAll(" End of period\n", "").
+                replaceAll(endOfPeriodMark, "").
                 length());
         hammingLabel.setText("Hamming=" + String.valueOf(hammingWeight));
     }
 
     private void calculateHammingWeight() {
         this.hammingWeight = 0;
-        String seq = outputTextArea.getText().replaceAll(" End of period\n", "");
+        String seq = outputTextArea.getText().replaceAll(endOfPeriodMark, "");
         int[] binSeq = Util.convertStringToBinArr(seq);
         for (int i = 0; i < binSeq.length; i++) {
             if (binSeq[i] == 1) {
@@ -103,7 +104,7 @@ public class ShiftAnalysisController {
     }
 
     private double[] calculateAutocorrelation() {
-        String seq = outputTextArea.getText().replaceAll(" End of period\n", "");
+        String seq = outputTextArea.getText().replaceAll(endOfPeriodMark, "");
         int[] firstBinSeq = Util.convertStringToBinArr(seq);
         Util.invertBinArr(firstBinSeq);
         int[] seqNumbers = new int[firstBinSeq.length];
